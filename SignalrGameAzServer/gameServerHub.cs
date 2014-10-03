@@ -34,6 +34,16 @@ namespace SignalrGameAzServer
             _players.Add(id, p);
         }
 
+        public void BroadcastAll(string Message)
+        {
+            Clients.All.Recievedmessage(Message);
+        }
+
+        public void BroadcastOthers(string Message)
+        {
+            Clients.Others.Recievedmessage(Message);
+        }
+
         public void UpdatePlayerPosition(myPlayer p)
         {
             Clients.Others.UpdatePosition(p);
